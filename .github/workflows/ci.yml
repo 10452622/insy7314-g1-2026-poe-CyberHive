@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   docker-build:
-    name: Build Docker images
+    name: Build and check Docker stack
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -26,3 +26,36 @@ jobs:
       - name: Build frontend image
         working-directory: HustleHub+
         run: docker build -t hustlehub-frontend ./frontend
+
+      - name: Generate temporary CI signing secret
+        run: echo "JWT_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+
+      - name: Start application stack
+        working-directory: HustleHub+
+        run: docker compose up -d --build
+
+      - name: Check backend responds
+        run: |
+          curl --fail --silent --show-error \
+            --retry 20 --retry-delay 3 --retry-connrefused \
+            --max-time 10 \
+            http://localhost:5000/
+
+      - name: Check frontend responds
+        run: |
+          curl --fail --silent --show-error \
+            --retry 20 --retry-delay 3 --retry-connrefused \
+            --max-time 10 \
+            http://localhost:8080/
+
+      - name: Show container status and logs
+        if: always()
+        working-directory: HustleHub+
+        run: |
+          docker compose ps -a
+          docker compose logs --no-color --tail=100
+
+      - name: Stop application stack
+        if: always()
+        working-directory: HustleHub+
+        run: docker compose down --volumes
