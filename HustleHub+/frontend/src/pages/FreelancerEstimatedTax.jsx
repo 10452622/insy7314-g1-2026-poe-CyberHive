@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Calculator } from "lucide-react";
 import { fetchFreelancerOrders } from "../services/api";
 import FreelancerHeader from "../components/FreelancerHeader";
-import "../styles/freelancerEstimatedTax.css";
+import "../styles/FreelancerEstimatedTax.css";
 
 const money = (amount) =>
   new Intl.NumberFormat("en-ZA", {
