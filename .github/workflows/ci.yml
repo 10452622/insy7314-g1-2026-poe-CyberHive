@@ -32,6 +32,8 @@ jobs:
 
       - name: Start application stack
         working-directory: HustleHub+
+        env:
+          COMPOSE_BAKE: "false"
         run: docker compose up -d --build
 
       - name: Check backend responds
