@@ -1,12 +1,12 @@
-FROM node24-bookworm-slim
+FROM node:24-bookworm-slim
 
-WORKDIR app
+WORKDIR /app
 
-COPY package.json package-lock.json .
+COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 COPY . .
 
 EXPOSE 5000
 
-CMD [npm, start]
+CMD ["npm", "start"]
