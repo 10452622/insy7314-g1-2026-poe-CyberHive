@@ -175,6 +175,12 @@ export const updateMyProfile = async (profileData) => {
     });
 };
 
+export const changeMyPassword = async (passwordData) => {
+    return request("/users/change-password", {
+        method: "PATCH",
+        body: JSON.stringify(passwordData)
+    });
+};
 
 /*Reference List
 

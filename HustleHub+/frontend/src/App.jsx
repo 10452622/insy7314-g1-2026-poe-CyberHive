@@ -24,6 +24,8 @@ import CreateBooking from "./pages/CreateBooking";
 import BookingConfirmation from "./pages/BookingConfirmation"; /* (MDN Web Docs, 2026) */
 import MyOrders from "./pages/MyOrders";
 import Messages from "./pages/Messages";
+import ClientProfile from "./pages/ClientProfile";
+import ClientAccountSettings from "./pages/ClientAccountSettings";
 
 import ClientOrders from "./pages/ClientOrders";                   /* Page 11 */
 import OrderDetails from "./pages/OrderDetails";           /* Page 12 */
@@ -226,6 +228,16 @@ function App() {
                         <Route
                             path="/gigs/:id"
                             element={<ClientGigDetails />}
+                        />
+
+                        <Route
+                            path="/client/profile"
+                            element={<ClientProfile />}
+                        />
+
+                        <Route
+                            path="/client/account-settings"
+                            element={<ClientAccountSettings />}
                         />
 
                     </Route>

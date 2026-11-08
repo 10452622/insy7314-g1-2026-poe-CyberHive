@@ -1,0 +1,131 @@
+
+/* Client Account Settings */
+
+.client-account-settings-page {
+    min-height: 100vh;
+    background: #f8f9fc;
+}
+
+.cas-account-overview {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+    background: #f8faff;
+    border: 1px solid #e8edf6;
+    border-radius: 12px;
+}
+
+.cas-overview-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    background: #eaf1ff;
+    border-radius: 11px;
+}
+
+.cas-account-overview h3 {
+    margin: 0 0 6px;
+    color: #202b43;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.cas-account-overview p {
+    margin: 0;
+    color: #737e93;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.cas-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    max-width: 650px;
+}
+
+.cas-password-form .fps-form-group {
+    width: 100%;
+}
+
+.cas-password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cas-password-field input {
+    width: 100%;
+    padding-right: 48px;
+}
+
+.cas-password-field button {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color: #7b8497;
+    cursor: pointer;
+}
+
+.cas-password-field button:hover {
+    color: #2563eb;
+}
+
+.cas-password-field button:disabled {
+    cursor: not-allowed;
+}
+
+.cas-password-guidance {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 14px 16px;
+    color: #52627e;
+    background: #f3f6fc;
+    border: 1px solid #e6ebf5;
+    border-radius: 10px;
+}
+
+.cas-password-guidance svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #2563eb;
+}
+
+.cas-password-guidance p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.cas-password-form .fps-form-actions {
+    margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .cas-account-overview {
+        padding: 14px;
+    }
+
+    .cas-password-form .fps-form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .cas-password-form .fps-form-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+}
