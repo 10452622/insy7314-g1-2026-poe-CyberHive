@@ -1,36 +1,26 @@
-
 const express = require("express");
+const router = express.Router();
 
-const { authenticateToken } = require("../middleware/authMiddleware");
+const {
+    authenticateToken
+} = require("../middleware/authMiddleware");
 
 const {
     getMyProfile,
-    updateMyProfile
+    updateMyProfile,
+    changePassword
 } = require("../controllers/userController");
 
-const router = express.Router();
-
-// GET /api/users/profile
-// Existing protected profile endpoint
-router.get("/profile", authenticateToken, (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Protected profile accessed successfully.",
-        user: {
-            id: req.user.id,
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            role: req.user.role
-        }
-    });
-});
-
-// GET /api/users/me
-// Retrieve the logged-in user's complete profile
+// Profile routes
+router.get("/profile", authenticateToken, getMyProfile);
 router.get("/me", authenticateToken, getMyProfile);
-
-// PATCH /api/users/me
-// Update the logged-in user's profile
 router.patch("/me", authenticateToken, updateMyProfile);
+
+// Password route
+router.patch(
+    "/change-password",
+    authenticateToken,
+    changePassword
+);
 
 module.exports = router;

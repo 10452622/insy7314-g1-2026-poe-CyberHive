@@ -1,4 +1,3 @@
-
 import { getCurrentUser, logout } from "../services/authSession";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
@@ -77,6 +76,13 @@ function ClientNavbar() {
                                 className={getNavClass}
                             >
                                 Messages
+                            </NavLink>
+
+                            <NavLink
+                                to="/client/profile"
+                                className={getNavClass}
+                            >
+                                Profile
                             </NavLink>
                         </>
                     )}

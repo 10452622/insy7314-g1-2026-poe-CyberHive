@@ -1,4 +1,6 @@
+
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 // GET /api/users/me
 const getMyProfile = async (req, res, next) => {
@@ -161,7 +163,112 @@ const updateMyProfile = async (req, res, next) => {
     }
 };
 
+// PATCH /api/users/change-password
+const changePassword = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+
+        const {
+            currentPassword,
+            newPassword,
+            confirmNewPassword
+        } = req.body;
+
+        // Validate required fields
+        if (
+            !currentPassword ||
+            !newPassword ||
+            !confirmNewPassword
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please complete all password fields."
+            });
+        }
+
+        // Validate new password length
+        if (newPassword.length < 8) {
+            return res.status(400).json({
+                success: false,
+                message: "Your new password must contain at least 8 characters."
+            });
+        }
+
+        // Validate password confirmation
+        if (newPassword !== confirmNewPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Your new passwords do not match."
+            });
+        }
+
+        // Find the authenticated user
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User account not found."
+            });
+        }
+
+        // Verify the current password
+        const passwordMatches = await bcrypt.compare(
+            currentPassword,
+            user.password
+        );
+
+        if (!passwordMatches) {
+            return res.status(401).json({
+                success: false,
+                message: "Your current password is incorrect."
+            });
+        }
+
+        // Prevent reusing the current password
+        const samePassword = await bcrypt.compare(
+            newPassword,
+            user.password
+        );
+
+        if (samePassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Your new password must be different from your current password."
+            });
+        }
+
+        // Match the password requirements used during registration
+        const passwordPattern =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+        if (!passwordPattern.test(newPassword)) {
+            return res.status(400).json({
+                success: false,
+                message: "Password must contain at least 8 characters, including uppercase, lowercase, a number and a special character."
+            });
+        }
+
+        // Hash the new password
+        user.password = await bcrypt.hash(newPassword, 12);
+
+        // Invalidate existing JWTs if tokenVersion is implemented
+        user.tokenVersion = (user.tokenVersion || 0) + 1;
+
+        await user.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Password changed successfully. Please log in again."
+        });
+
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     getMyProfile,
-    updateMyProfile
+    updateMyProfile,
+    changePassword
 };

@@ -88,8 +88,15 @@ const userSchema = new mongoose.Schema(
             default: ""
         },
 
+        // Password reset fields
         resetPasswordToken: String,
-        resetPasswordExpires: Number
+        resetPasswordExpires: Number,
+
+        // JWT token version for invalidating existing sessions
+        tokenVersion: {
+            type: Number,
+            default: 0
+        }
     },
     {
         timestamps: true
