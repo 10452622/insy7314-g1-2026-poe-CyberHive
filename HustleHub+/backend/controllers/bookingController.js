@@ -192,7 +192,19 @@ const updateBookingStatus = async (req, res, next) => {
             });
         }
 
+       // Preserve the original completion date if the booking is already completed.
+       // Otherwise, record the date when it first becomes completed.
+        if (status === "Completed" && booking.status !== "Completed") {
+            booking.completedAt = new Date();
+        }
+
+       // Clear the date if a completed booking is reopened or cancelled.
+        if (status !== "Completed") {
+            booking.completedAt = null;
+        }
+
         booking.status = status;
+
         await booking.save();
 
         res.status(200).json({

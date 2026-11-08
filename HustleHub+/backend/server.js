@@ -1,4 +1,4 @@
-//Packages
+
 const express = require("express");
 const https = require("https");
 const fs = require("fs");
@@ -7,33 +7,40 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const cors = require("cors");
 
+// Load environment variables first
+dotenv.config({
+    path: path.join(__dirname, ".env")
+});
+
+// Import database connection
 const connectDB = require("./config/db");
-const migrateLegacyUsers = require("./config/migrateLegacyUsers");
+
+// Import routes
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
-
 const gigRoutes = require("./routes/gigRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 
-const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-
-dotenv.config();
+const {
+    notFound,
+    errorHandler
+} = require("./middleware/errorMiddleware");
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-//Security middleware (IIE, 2026)
+// Security middleware
 app.use(helmet());
 
-//Allow requests from the React frontend (Ibrahim, 2024)
+// Allow requests from React frontend
 app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json({ limit: "10kb" }));
 
-// Basic test route (IIE, 2026)
+// Basic test route
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
@@ -52,59 +59,34 @@ app.use("/api/messages", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// SSL certificate paths
-const keyPath = path.join(
-    __dirname,
-    "cert",
-    "server.key"
-);
+// SSL certificate configuration
+const sslOptions = {
+    key: fs.readFileSync(
+        path.join(__dirname, "certs", "server.key")
+    ),
+    cert: fs.readFileSync(
+        path.join(__dirname, "certs", "server.crt")
+    )
+};
 
-const certPath = path.join(
-    __dirname,
-    "cert",
-    "server.crt"
-);
-
-// Connect to MongoDB before starting the server.
+// Start server only after MongoDB connects
 const startServer = async () => {
     try {
+        console.log("Connecting to MongoDB...");
+
         await connectDB();
-        await migrateLegacyUsers();
 
-        if (
-            fs.existsSync(keyPath) &&
-            fs.existsSync(certPath)
-        ) {
-            const sslOptions = {
-                key: fs.readFileSync(keyPath),
-                cert: fs.readFileSync(certPath)
-            };
+        console.log("Database connection established.");
 
-            // Create HTTPS server (IIE, 2026)
-            https.createServer(
-                sslOptions,
-                app
-            ).listen(PORT, () => {
-                console.log(
-                    `HustleHub+ API running at https://localhost:${PORT}`
-                );
-            });
-
-        } else {
-            app.listen(PORT, () => {
-                console.log(
-                    `HustleHub+ API running at http://localhost:${PORT}`
-                );
-
-                console.log(
-                    "SSL certificates not found. Using HTTP for local development."
-                );
-            });
-        }
+        https.createServer(sslOptions, app).listen(PORT, () => {
+            console.log(
+                `HustleHub+ API running at https://localhost:${PORT}`
+            );
+        });
 
     } catch (error) {
         console.error(
-            "Backend startup failed:",
+            "HustleHub+ startup failed:",
             error.message
         );
 
@@ -113,10 +95,3 @@ const startServer = async () => {
 };
 
 startServer();
-
-/*Reference List
-- The Independent Institute of Education (IIE), 2026. Information Systems 3D [INSY7314 Module Manual]. The Independent Institute of
-  Education: Unpublished.
-- Ibrahim, M., 2024. What is Cross Origin Resource Sharing (CORS)?. Super Tokens blog, [blog] 06 July. Available at:
-  <https://supertokens.com/blog/what-is-cross-origin-resource-sharing> [Accessed 02 September 2026].
-*/

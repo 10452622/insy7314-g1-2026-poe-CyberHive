@@ -1,10 +1,4 @@
-# IIE, 2026
 node_modules/
 .env
-cert/
-cert/server.key
-cert/server.crt
-
-#Reference List:
-# 1. The Independent Institute of Education (IIE), 2026. Information Systems 3D [INSY7314 Module Manual]. The Independent Institute of 
-# Education: Unpublished. 
+certs/server.key
+certs/server.crt

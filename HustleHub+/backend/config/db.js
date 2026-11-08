@@ -2,23 +2,34 @@
 const mongoose = require("mongoose");
 const dns = require("dns");
 
+// DNS configuration
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const connectDB = async () => {
     try {
-        if (!process.env.MONGO_URI) {
+        const mongoURI = process.env.MONGO_URI;
+
+        if (!mongoURI) {
             throw new Error(
                 "MONGO_URI is missing from the environment variables."
             );
-        } //(IIE, 2026)
+        }
 
-        const connection = await mongoose.connect(
-            process.env.MONGO_URI
-        );
+        console.log("Attempting MongoDB connection...");
+
+        const connection = await mongoose.connect(mongoURI, {
+            serverSelectionTimeoutMS: 15000
+        });
 
         console.log(
             `MongoDB connected: ${connection.connection.host}`
         );
+
+        console.log(
+            `Database name: ${connection.connection.name}`
+        );
+
+        return connection;
 
     } catch (error) {
         console.error(
@@ -30,10 +41,4 @@ const connectDB = async () => {
     }
 };
 
-module.exports = connectDB; // (IIE, 2026)
-
-/*Reference List
-
-The Independent Institute of Education (IIE), 2026. Information Systems 3D [INSY7314 Module Manual]. The Independent Institute of 
-  Education: Unpublished.
-*/
+module.exports = connectDB;
