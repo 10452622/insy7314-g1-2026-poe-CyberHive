@@ -4,7 +4,8 @@ const express = require("express");
 const {
     register,
     login,
-    forgotPassword
+    forgotPassword,
+    verifyLoginTOTP
 } = require("../controllers/authController"); //(IIE, 2026)
 
 const {
@@ -38,6 +39,14 @@ router.post(
     loginValidation,
     handleValidationErrors,
     login
+);
+
+// POST /api/auth/verify-totp
+// Verify the authenticator app code or a recovery code.
+router.post(
+    "/verify-totp",
+    loginLimiter,
+    verifyLoginTOTP
 );
 
 // POST /api/auth/forgot-password

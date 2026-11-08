@@ -53,7 +53,7 @@ function LoginPage() {
 
     if (!formData.email.trim()) {
       newErrors.email =
-        'Email address is required.'; /* //(MDN Web Docs, 2026) */
+        'Email address is required.';
     } else if (
       !emailPattern.test(formData.email.trim())
     ) {
@@ -75,7 +75,7 @@ function LoginPage() {
     event.preventDefault();
 
     if (!validateForm() || isSubmitting) {
-      return; /* //(MDN Web Docs, 2026) */
+      return;
     }
 
     setServerError('');
@@ -87,6 +87,33 @@ function LoginPage() {
         password: formData.password
       });
 
+      /*
+       * Two-factor authentication:
+       * Do not save a normal session yet.
+       * The user must verify the emailed OTP first.
+       */
+      if (response?.requiresTwoFactor) {
+        if (!response.challengeToken) {
+          throw new Error(
+            'The verification request is missing its security token. Please try again.'
+          );
+        }
+
+        navigate('/verify-otp', {
+          replace: true,
+          state: {
+            challengeToken: response.challengeToken,
+            maskedEmail: response.maskedEmail || '',
+            from: location.state?.from || null
+          }
+        });
+
+        return;
+      }
+
+      /*
+       * Normal login for accounts without 2FA.
+       */
       if (!response?.token || !response?.user) {
         throw new Error(
           'Login response is missing account information.'
@@ -177,7 +204,7 @@ function LoginPage() {
               placeholder="Enter your email address"
               autoComplete="email"
               value={formData.email}
-              onChange={handleChange} /* //(MDN Web Docs, 2026) */
+              onChange={handleChange}
               aria-invalid={Boolean(errors.email)}
               disabled={isSubmitting}
             />
@@ -206,7 +233,7 @@ function LoginPage() {
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
-                autoComplete="current-password" /* //(MDN Web Docs, 2026) */
+                autoComplete="current-password"
                 value={formData.password}
                 onChange={handleChange}
                 aria-invalid={Boolean(errors.password)}
@@ -238,7 +265,7 @@ function LoginPage() {
                 className="login-error"
                 role="alert"
               >
-                {errors.password} {/* //(MDN Web Docs, 2026) */}
+                {errors.password}
               </span>
             )}
 
@@ -266,7 +293,7 @@ function LoginPage() {
           >
             {isSubmitting
               ? 'Logging in...'
-              : 'Login' /* //(MDN Web Docs, 2026) */
+              : 'Login'
             }
           </button>
         </form>

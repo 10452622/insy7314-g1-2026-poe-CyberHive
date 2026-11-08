@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import AccountTypePage from "./pages/AccountTypePage";
 import LoginPage from "./pages/LoginPage";
+import VerifyOTPPage from "./pages/VerifyOTPPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import AboutPage from "./pages/AboutPage"; /* //(MDN Web Docs, 2026) */
@@ -154,6 +155,11 @@ function App() {
                 <Route
                     path="/login"
                     element={<LoginPage />}
+                />
+
+                <Route
+                    path="/verify-otp"
+                    element={<VerifyOTPPage />}
                 />
 
                 <Route

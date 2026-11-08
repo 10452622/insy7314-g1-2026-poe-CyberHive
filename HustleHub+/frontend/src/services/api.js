@@ -182,6 +182,35 @@ export const changeMyPassword = async (passwordData) => {
     });
 };
 
+export const startTwoFactorSetup = async (currentPassword) => {
+    return request("/users/2fa/setup", {
+        method: "POST",
+        body: JSON.stringify({
+            currentPassword
+        })
+    });
+};
+
+
+export const enableTwoFactor = async (otp) => {
+    return request("/users/2fa/enable", {
+        method: "PATCH",
+        body: JSON.stringify({
+            otp
+        })
+    });
+};
+
+
+export const disableTwoFactor = async (currentPassword) => {
+    return request("/users/2fa/disable", {
+        method: "PATCH",
+        body: JSON.stringify({
+            currentPassword
+        })
+    });
+};
+
 /*Reference List
 
 Mozilla, 2025. JavaScript reference: Standard built-in objects & Fetch API. [online] Available at: https://developer.mozilla.org/ [Accessed: 8 October 2026].

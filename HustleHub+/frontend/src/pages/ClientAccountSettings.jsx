@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
     UserRound,
@@ -22,6 +21,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 
 import ClientNavbar from "../components/ClientNavbar";
+import TwoFactorSettings from "../components/TwoFactorSettings";
 
 import { changeMyPassword } from "../services/api";
 import { logout } from "../services/authSession";
@@ -126,6 +126,7 @@ const ClientAccountSettings = () => {
              */
             setTimeout(() => {
                 logout();
+
                 navigate("/login", {
                     replace: true,
                     state: {
@@ -302,6 +303,32 @@ const ClientAccountSettings = () => {
                                 </div>
 
                             </div>
+                        </section>
+
+                        {/* Two-Factor Authentication */}
+                        <section className="fps-profile-section">
+
+                            <div className="fps-panel-heading">
+
+                                <div>
+                                    <h2>Login Security</h2>
+
+                                    <p>
+                                        Protect your account with an additional
+                                        email verification step.
+                                    </p>
+                                </div>
+
+                                <span className="fps-heading-icon">
+                                    <ShieldCheck size={20} />
+                                </span>
+
+                            </div>
+
+                            <div className="fps-section-body">
+                                <TwoFactorSettings />
+                            </div>
+
                         </section>
 
                         {/* Change password */}

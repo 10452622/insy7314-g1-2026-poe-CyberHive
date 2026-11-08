@@ -30,6 +30,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 
 import FreelancerHeader from "../components/FreelancerHeader";
+import TwoFactorSettings from "../components/TwoFactorSettings";
 
 import { fetchMyProfile, changeMyPassword } from "../services/api";
 import { logout } from "../services/authSession";
@@ -595,6 +596,32 @@ const FreelancerAccountSettings = () => {
                                         )}
 
                                     </div>
+                                </section>
+
+                                {/* Two-Factor Authentication */}
+                                <section className="fas-section">
+
+                                    <div className="fas-panel-heading">
+
+                                        <div>
+                                            <h2>Login Security</h2>
+
+                                            <p>
+                                                Protect your account with an
+                                                additional email verification step.
+                                            </p>
+                                        </div>
+
+                                        <span className="fas-heading-icon">
+                                            <ShieldCheck size={20} />
+                                        </span>
+
+                                    </div>
+
+                                    <div className="fas-section-body">
+                                        <TwoFactorSettings />
+                                    </div>
+
                                 </section>
 
                                 {/* Change password - separate from preferences form */}
