@@ -716,3 +716,10 @@ Overall, HustleHub+ incorporates security considerations into both its applicati
 2. OWASP Foundation, 2026. Logging Cheat Sheet. [online] Available at: <https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html> [Accessed 09 November 2026].
 
 3. OWASP Foundation, 2026. Multifactor Authentication Cheat Sheet. [online] Available at: <https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html>  [Accessed 09 November 2026].
+
+## Part 3 Demonstration Video
+
+The demonstration video showcases the key features and functionality of HustleHub+, including the client and freelancer interfaces.
+
+**Google Drive Link:** [Watch the HustleHub+ Demonstration Video](https://drive.google.com/file/d/1rq6-0Ely2_jO-T4zi3V9ZoSZu_F0eC1m/view?usp=sharing)
+**YouTube Link:** [Watch the HustleHub+ Demonstration Video](https://youtu.be/0fjV-3aQLLU)
