@@ -465,9 +465,8 @@ The frontend provides the user interface while the Node.js and Express.js backen
 
 # <u>POE Final (Part 3)</u>
 
-<u>HustleHub+ Security Review</u>
-
-<u>1. Introduction</u>
+<ins>HustleHub+ Security Review</ins>
+<ins>1. Introduction</ins>
 Security was an important consideration during the development of HustleHub+, a freelance marketplace platform designed to connect freelancers with clients. The platform allows freelancers to advertise their services and clients to browse and book these services. It also records financial transactions generated through bookings and provides users with information about their income and estimated tax obligations.
 
 HustleHub+ processes sensitive information, including user credentials, booking records, financial transactions and income-related data, and because of that appropriate security measures are essential to protecting user privacy, preventing unauthorised access and maintaining the reliability of the platform.
@@ -476,10 +475,10 @@ Web applications face several security threats, including injection attacks, bro
 
 This security review identifies the security features implemented in HustleHub+, discusses common security threats and explains how implemented controls help mitigate them. It also considers application logging, Docker containerisation and Continuous Integration (CI) as part of the project's security and development practices.
 
-<u>2. Additional Security Features Implemented</u>
+<ins>2. Additional Security Features Implemented</ins>
 Two additional security features were implemented in HustleHub+ to improve account protection. These features are Two-Factor Authentication (2FA) and Change Password functionality.
 
-<u>2.1 Two-Factor Authentication (2FA)</u>
+<ins>2.1 Two-Factor Authentication (2FA)</ins>
 Two-Factor Authentication was implemented to strengthen the authentication process and reduce the risk of unauthorised account access.
 
 Password-based authentication can be vulnerable when login credentials are stolen, guessed or exposed through data breaches. Two-Factor Authentication reduces reliance on passwords by requiring an additional form of identity verification.
@@ -490,7 +489,7 @@ In HustleHub+, 2FA provides an additional layer of account protection. This is p
 
 The effectiveness of this feature depends on the secure enforcement of the second authentication factor. Testing confirms that users cannot bypass the additional verification step.
 
-<u>2.2 Change Password Functionality</u>
+<ins>2.2 Change Password Functionality</ins>
 A Change Password feature was implemented to allow registered users to update their account passwords.
 
 This functionality allows users to replace passwords that may have been compromised or are no longer considered secure. Weak authentication mechanisms and insecure password management can increase the possibility of unauthorised account access (OWASP Foundation, 2025).
@@ -499,12 +498,12 @@ The Change Password feature contributes to mitigating these risks by giving user
 
 Together, Two-Factor Authentication and Change Password functionality strengthen user account protection and fulfil the requirement to implement two additional security features (OWASP Foundation, 2026).
 
-<u>3. Security Threats and Mitigation Measures</u>
+<ins>3. Security Threats and Mitigation Measures</ins>
 HustleHub+ may be exposed to various security threats because users interact with personal information, booking details and financial records.
 
 The following sections identify relevant threats, explain how implemented security controls mitigate them and highlight areas requiring further verification.
 
-<u>3.1 Authentication Weaknesses and Unauthorised Access</u>
+<ins>3.1 Authentication Weaknesses and Unauthorised Access</ins>
 Threat - Attackers may attempt to gain unauthorised access to accounts through stolen login credentials, guessed passwords or compromised authentication information.
 
 Implemented Security Control - Two-Factor Authentication (2FA).
@@ -515,7 +514,7 @@ This reduces the risk of account takeover because possession of a user's passwor
 
 By implementing 2FA, HustleHub+ strengthens account authentication and helps protect sensitive user information against unauthorised access. Testing verifies that this authentication step cannot be bypassed.
 
-<u>3.2 Compromised Passwords</u>
+<ins>3.2 Compromised Passwords</ins>
 Threat - Users may continue using passwords that have been exposed or compromised, increasing the likelihood of unauthorised account access.
 
 Implemented Security Control - Change Password functionality.
@@ -524,7 +523,7 @@ Mitigation - HustleHub+ provides users with the ability to change their password
 
 Insecure password storage, weak authentication processes and ineffective credential management are important risks that web applications must address (OWASP Foundation, 2025). The Change Password feature contributes to reducing these risks by enabling users to update credentials when necessary.
 
-<u>3.3 Injection Attacks</u>
+<ins>3.3 Injection Attacks</ins>
 Threat - Injection attacks occur when malicious input is processed by an application in a manner that allows unintended commands or database operations.
 
 HustleHub+ uses a Node.js and Express backend that communicates with MongoDB. Consequently, NoSQL injection represents a potential security concern. Attackers could attempt to manipulate information submitted through login requests, booking forms or other API endpoints to interfere with database operations.
@@ -537,7 +536,7 @@ Mitigation - The Node.js and Express backend validate incoming requests and ensu
 
 Database queries are constructed securely so that untrusted input cannot control query operators or manipulate database operations. These measures help reduce the risk of unauthorised data access, modification or disclosure (OWASP Foundation, 2025).
 
-<u>3.4 Cross-Site Scripting (XSS)</u>
+<ins>3.4 Cross-Site Scripting (XSS)</ins>
 Threat - Cross-Site Scripting occurs when an attacker introduces malicious scripts into content that is displayed within another user's browser, because HustleHub+ allows freelancers to create service listings and users to interact with user-generated information, malicious scripts could potentially be introduced through editable fields.
 
 For example, an attacker could attempt to insert JavaScript into a service description or profile field.
@@ -552,7 +551,7 @@ These measures help protect users from browser-based attacks and reduce the poss
 
 Further testing has been done to confirm the effectiveness of XSS protection across service listings, freelancer profiles and other user-controlled fields.
 
-<u>3.5 Broken Access Control</u>
+<ins>3.5 Broken Access Control</ins>
 Threat - Broken access control occurs when users gain access to information or application functionality beyond their authorised permissions. This is particularly important for HustleHub+ because users interact with private account information, bookings, earnings and financial records.
 
 For example, one user should not be able to access another user's financial information or modify bookings that do not belong to them. Broken access control can result in unauthorised information disclosure, modification or destruction when appropriate permission checks are not enforced (OWASP Foundation, 2025).
@@ -565,7 +564,7 @@ This helps prevent users from accessing unauthorised information by manipulating
 
 Further testing has been done to confirm that users cannot access or modify information belonging to other accounts without the appropriate permissions.
 
-<u>3.6 Suspicious Activity and Security Monitoring</u>
+<ins>3.6 Suspicious Activity and Security Monitoring</ins>
 Threat - Suspicious login attempts, unusual transactions, unauthorised activities and system errors may remain undetected without effective monitoring.
 
 Implemented Security Control - Application logging.
@@ -574,7 +573,7 @@ Mitigation - Logging provides a mechanism for recording important application ev
 
 In HustleHub+, application logging contributes to monitoring and troubleshooting. The project's required logging coverage includes login attempts, bookings, transactions and application errors.
 
-<u>3.7 Application Integration and Software Reliability</u>
+<ins>3.7 Application Integration and Software Reliability</ins>
 Threat - Application changes may introduce software defects, configuration problems or regressions that affect reliability and potentially weaken existing security functionality.
 
 Implemented Security Controls - Docker containerisation and GitHub Continuous Integration (CI).
@@ -583,37 +582,37 @@ Mitigation - Docker packages the React frontend and Node.js/Express backend into
 
 Automated testing helps identify certain application failures earlier in development, reducing the likelihood of defective changes being integrated without verification (OWASP Foundation, 2025).
 
-<u>4. Security Logging and Monitoring</u>
+<ins>4. Security Logging and Monitoring</ins>
 Application logging was implemented as part of HustleHub+'s monitoring functionality. Logging supports application security by providing records that can assist with identifying system errors, reviewing activities and investigating potential incidents.
 
 Application security logs are valuable because they provide information that can be used for operational troubleshooting, security investigations and monitoring unusual behaviour (OWASP Foundation, 2026).
 
 The project's logging requirements identify the following important events.
 
-<u>4.1 Login Attempts</u>
+<ins>4.1 Login Attempts</ins>
 Recording successful and unsuccessful login attempts helps identify potential authentication problems and suspicious login behaviour. Repeated unsuccessful login attempts may indicate an attempted brute-force attack. Authentication event logs can help developers investigate unusual account activity and identify patterns that may require further attention (OWASP Foundation, 2026).
 
-<u>4.2 Booking Activities</u>
+<ins>4.2 Booking Activities</ins>
 Booking-related logging provides records of important actions performed within the application. These records can assist developers in investigating unexpected booking behaviour, identifying processing errors and reviewing unusual activities (OWASP Foundation, 2026).
 
-<u>4.3 Financial Transactions</u>
+<ins>4.3 Financial Transactions</ins>
 Transaction logging supports the monitoring of financial operations generated through bookings, because HustleHub+ processes income-related information, transaction events are relevant to investigating errors and reviewing unusual financial activity. However, logs should not expose sensitive financial credentials or authentication information (OWASP Foundation, 2026).
 
-<u>4.4 Application Errors</u>
+<ins>4.4 Application Errors</ins>
 Error logging assists developers in identifying technical problems affecting application functionality.These records support debugging, troubleshooting and the investigation of unexpected system behaviour. Application logs provide important information for diagnosing problems and understanding events surrounding potential security incidents (OWASP Foundation, 2026).
 
-<u>4.5 Grafana Monitoring</u>
+<ins>4.5 Grafana Monitoring</ins>
 Grafana also forms part of HustleHub+'s monitoring setup. When connected to an appropriate log data source, Grafana provides a central interface for viewing application logs, investigating errors and analysing system activity. This assists developers in identifying unusual behaviour and reviewing application events (OWASP Foundation, 2026).
 
-<u>4.6 Secure Logging Practices</u>
+<ins>4.6 Secure Logging Practices</ins>
 Although logging supports security monitoring, log information must also be protected. Sensitive information such as passwords, authentication codes, access tokens and other confidential credentials should not be recorded in application logs.
 
 The OWASP Foundation (2026) recommends protecting sensitive information in logs and restricting access to recorded security events. The final logging implementation was therefore verified to confirm that relevant events are captured without unnecessarily exposing sensitive user information.
 
-<u>5. Docker Containerisation and Continuous Integration Pipeline</u>
+<ins>5. Docker Containerisation and Continuous Integration Pipeline</ins>
 Docker containerisation and a Continuous Integration pipeline were implemented to support the development, testing and integration of HustleHub+. These technologies contribute to consistent application execution and automated verification.
 
-<u>5.1 Application Architecture</u>
+<ins>5.1 Application Architecture</ins>
 HustleHub+ consists of three main components:
 
 1). React Frontend
@@ -630,7 +629,7 @@ MongoDB stores application information, including user-related data, service det
 
 This separation provides a structure for managing server-side operations. However, secure authentication, authorisation and input validation remain necessary to protect sensitive information (OWASP Foundation, 2025).
 
-<u>5.2 Docker Containerisation</u>
+<ins>5.2 Docker Containerisation</ins>
 Docker packages the React frontend and Node.js/Express backend into runnable containers. This allows the application components to execute in defined environments and helps reduce configuration differences during development and testing.
 
 Containerisation supports application consistency, but secure operation also depends on appropriate configuration.
@@ -649,7 +648,7 @@ Reviewing container configurations for vulnerabilities.
 
 These precautions are relevant because security misconfiguration and software supply chain weaknesses can expose applications to additional risks (OWASP Foundation, 2025).
 
-<u>5.3 GitHub Continuous Integration (CI) Pipeline</u>
+<ins>5.3 GitHub Continuous Integration (CI) Pipeline</ins>
 A Continuous Integration pipeline was implemented using GitHub to automate application building and testing. The CI pipeline builds and runs the Docker containers and executes automated tests before changes are merged.
 
 This supports the development process through:
@@ -666,12 +665,12 @@ The CI pipeline therefore contributes to application reliability and supports th
 
 However, software supply chain risks remain an important security concern, meaning that automated builds and tests within HustleHub+ are supported by secure dependency management and appropriate security checks (OWASP Foundation, 2025).
 
-<u>5.4 Deployment Status</u>
+<ins>5.4 Deployment Status</ins>
 The GitHub CI pipeline currently performs automated building, container execution and testing. It does not publish HustleHub+ to a live production website. Production deployment has not yet been configured.
 
 Consequently, production-specific security measures such as HTTPS configuration, hosting permissions and public infrastructure security have not been assessed in this review.
 
-<u>6. Conclusion</u>
+<ins>7. Conclusion</ins>
 The security review of HustleHub+ highlights the importance of protecting sensitive information and maintaining a secure freelance marketplace. The development team implemented Two-Factor Authentication and Change Password functionality as two additional security features.
 
 Two-Factor Authentication strengthens account protection by introducing an additional identity-verification requirement, while Change Password functionality allows users to replace potentially compromised credentials.
@@ -684,7 +683,7 @@ The review identifies injection attacks, cross-site scripting, authentication we
 
 Overall, HustleHub+ incorporates security considerations into both its application functionality and development practices.
 
-<u>7. Reference List</u>
+<ins>8. Reference List</ins>
 OWASP Foundation, 2025. OWASP Top 10:2025. [online] Available at: https://top10.owasp.org/2025/ [Accessed 09 November 2026].
 
 OWASP Foundation, 2026. Logging Cheat Sheet. [online] Available at: https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html [Accessed 09 November 2026].
@@ -695,4 +694,3 @@ OWASP Foundation, 2026. Multifactor Authentication Cheat Sheet. [online] Availab
 
 
 
-⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮
