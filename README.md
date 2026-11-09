@@ -695,7 +695,7 @@ The GitHub CI pipeline currently performs automated building, container executio
 
 Consequently, production-specific security measures such as HTTPS configuration, hosting permissions and public infrastructure security have not been assessed in this review.
 
-## 7. Conclusion
+## 6. Conclusion
 
 The security review of HustleHub+ highlights the importance of protecting sensitive information and maintaining a secure freelance marketplace. The development team implemented Two-Factor Authentication and Change Password functionality as two additional security features.
 
@@ -709,7 +709,7 @@ The review identifies injection attacks, cross-site scripting, authentication we
 
 Overall, HustleHub+ incorporates security considerations into both its application functionality and development practices.
 
-## 8. Reference List
+## 7. Reference List
 
 1. OWASP Foundation, 2025. OWASP Top 10:2025. [online] Available at: <https://top10.owasp.org/2025/> [Accessed 09 November 2026].
 
