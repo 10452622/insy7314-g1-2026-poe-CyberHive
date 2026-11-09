@@ -1,4 +1,11 @@
 node_modules/
+coverage/
+
+# Local environment files
 .env
-certs/server.key
-certs/server.crt
+.env.*
+!.env.example
+
+# Local development certificates
+certs/*.key
+certs/*.crt

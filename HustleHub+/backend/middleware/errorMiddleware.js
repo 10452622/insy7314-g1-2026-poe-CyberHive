@@ -1,3 +1,5 @@
+const logger = require("../utils/logger");
+
 //Error handling 
 const notFound = (req, res) => {
     res.status(404).json({
@@ -12,6 +14,16 @@ const errorHandler = (err, req, res, next) => {
     const statusCode = res.statusCode >= 400
         ? res.statusCode
         : 500;
+
+    logger.error("Unhandled API error", {
+        message: err.message,
+        stack: process.env.NODE_ENV === "production"
+            ? undefined
+            : err.stack,
+        method: req.method,
+        path: req.originalUrl,
+        statusCode
+    });
 
     res.status(statusCode).json({
         success: false,
