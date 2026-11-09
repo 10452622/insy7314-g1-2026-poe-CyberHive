@@ -1,0 +1,730 @@
+
+/* =========================================
+   TWO-FACTOR AUTHENTICATION CARD
+========================================= */
+
+.two-factor-card {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid #e5e9f2;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #202433;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.two-factor-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.two-factor-heading-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #edf2ff;
+    color: #1239c9;
+}
+
+.two-factor-header h3 {
+    margin: 0 0 6px;
+    color: #202b45;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.two-factor-header p {
+    margin: 0;
+    color: #788296;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   TWO-FACTOR STATUS
+========================================= */
+
+.two-factor-status {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.two-factor-status.enabled {
+    background: #effaf3;
+    color: #23804a;
+}
+
+.two-factor-status.disabled {
+    background: #fff8e8;
+    color: #a66a00;
+}
+
+.two-factor-status svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.two-factor-status div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.two-factor-status strong {
+    font-size: 13px;
+}
+
+.two-factor-status span {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.two-factor-content {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.two-factor-description {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: #68748a;
+}
+
+.two-factor-description svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #1239c9;
+}
+
+.two-factor-description p,
+.two-factor-instruction {
+    margin: 0;
+    color: #68748a;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   FORMS
+========================================= */
+
+.two-factor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.two-factor-form label {
+    color: #303b52;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.two-factor-form > form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.two-factor-form > form label {
+    margin-top: 4px;
+}
+
+/* =========================================
+   PASSWORD INPUT
+========================================= */
+
+.two-factor-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 45px;
+    padding: 0 13px;
+    border: 1px solid #dce2ee;
+    border-radius: 8px;
+    background: #fbfcff;
+    color: #8792a6;
+    box-sizing: border-box;
+}
+
+.two-factor-input-wrapper:focus-within {
+    border-color: #1239c9;
+    box-shadow: 0 0 0 3px rgba(18, 57, 201, 0.08);
+}
+
+.two-factor-input-wrapper input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #202433;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.two-factor-input-wrapper input:disabled {
+    cursor: not-allowed;
+}
+
+/* =========================================
+   AUTHENTICATOR OTP INPUT
+========================================= */
+
+.two-factor-otp-input {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    border: 1px solid #dce2ee;
+    border-radius: 8px;
+    outline: none;
+    background: #fbfcff;
+    color: #17213b;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.two-factor-otp-input::placeholder {
+    color: #b7c0d0;
+}
+
+.two-factor-otp-input:focus {
+    border-color: #1239c9;
+    box-shadow: 0 0 0 3px rgba(18, 57, 201, 0.08);
+}
+
+.two-factor-otp-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.two-factor-hint {
+    margin: -3px 0 4px;
+    color: #8792a6;
+    font-size: 11.5px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   AUTHENTICATOR SETUP HEADING
+========================================= */
+
+.two-factor-setup-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.two-factor-setup-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1239c9;
+    background: #edf2ff;
+    border-radius: 10px;
+}
+
+.two-factor-setup-heading h4 {
+    margin: 2px 0 5px;
+    color: #202b45;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.two-factor-setup-heading p {
+    margin: 0;
+    color: #788296;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   QR CODE
+========================================= */
+
+.two-factor-qr-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 230px;
+    padding: 20px;
+    background: #f8faff;
+    border: 1px solid #e5eaf5;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.two-factor-qr-image {
+    display: block;
+    width: 190px;
+    height: 190px;
+    max-width: 100%;
+    object-fit: contain;
+    padding: 8px;
+    background: #ffffff;
+    border: 1px solid #edf0f5;
+    border-radius: 8px;
+}
+
+/* =========================================
+   MANUAL AUTHENTICATOR SETUP
+========================================= */
+
+.two-factor-manual-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: #f8faff;
+    border: 1px solid #e5eaf5;
+    border-radius: 10px;
+}
+
+.two-factor-manual-setup label {
+    color: #303b52;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.two-factor-manual-setup p {
+    margin: 0;
+    color: #788296;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.two-factor-manual-key {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 12px;
+    background: #ffffff;
+    border: 1px solid #dce2ee;
+    border-radius: 8px;
+}
+
+.two-factor-manual-key code {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #17213b;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.two-factor-manual-key button {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1239c9;
+    background: #edf2ff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.two-factor-manual-key button:hover {
+    background: #dce6ff;
+}
+
+/* =========================================
+   SECTION DIVIDER
+========================================= */
+
+.two-factor-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 4px;
+}
+
+.two-factor-divider::before,
+.two-factor-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e8edf5;
+}
+
+.two-factor-divider span {
+    color: #8792a6;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   RECOVERY CODE SECTION
+========================================= */
+
+.two-factor-recovery {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.two-factor-recovery-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 9px;
+}
+
+.two-factor-recovery-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1239c9;
+    background: #edf2ff;
+    border-radius: 15px;
+}
+
+.two-factor-recovery-heading h4 {
+    margin: 2px 0 0;
+    color: #202b45;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.two-factor-recovery-heading p {
+    max-width: 390px;
+    margin: 0;
+    color: #788296;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   RECOVERY WARNING
+========================================= */
+
+.two-factor-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px;
+    background: #fff8e8;
+    border: 1px solid #f5e2b8;
+    border-radius: 9px;
+    color: #a66a00;
+}
+
+.two-factor-warning svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.two-factor-warning p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.two-factor-warning strong {
+    font-weight: 700;
+}
+
+/* =========================================
+   RECOVERY CODE LIST
+========================================= */
+
+.two-factor-recovery-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    padding: 15px;
+    background: #f8faff;
+    border: 1px solid #e5eaf5;
+    border-radius: 10px;
+}
+
+.two-factor-recovery-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #e5eaf5;
+    border-radius: 7px;
+}
+
+.two-factor-recovery-code span {
+    flex-shrink: 0;
+    color: #9aa5b6;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.two-factor-recovery-code code {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #17213b;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   COPY RECOVERY CODES BUTTON
+========================================= */
+
+.two-factor-copy-btn {
+    width: 100%;
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 15px;
+    color: #1239c9;
+    background: #edf2ff;
+    border: 1px solid #dce6ff;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.two-factor-copy-btn:hover {
+    background: #dfe8ff;
+}
+
+.two-factor-recovery-confirm {
+    width: 100%;
+}
+
+/* =========================================
+   MISSING RECOVERY CODES
+========================================= */
+
+.two-factor-no-recovery {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px;
+    color: #b45309;
+    background: #fff8e8;
+    border: 1px solid #f5e2b8;
+    border-radius: 9px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.two-factor-no-recovery svg {
+    flex-shrink: 0;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.two-factor-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.two-factor-primary-btn,
+.two-factor-secondary-btn,
+.two-factor-danger-btn {
+    min-height: 42px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.two-factor-primary-btn {
+    background: #1239c9;
+    color: #ffffff;
+}
+
+.two-factor-primary-btn:hover:not(:disabled) {
+    background: #0e2fae;
+}
+
+.two-factor-secondary-btn {
+    border: 1px solid #dce2ee;
+    background: #ffffff;
+    color: #596579;
+}
+
+.two-factor-secondary-btn:hover:not(:disabled) {
+    background: #f5f7fb;
+}
+
+.two-factor-danger-btn {
+    background: #fff0f0;
+    color: #c62828;
+}
+
+.two-factor-danger-btn:hover:not(:disabled) {
+    background: #ffe0e0;
+}
+
+.two-factor-primary-btn:disabled,
+.two-factor-secondary-btn:disabled,
+.two-factor-danger-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   SUCCESS AND ERROR MESSAGES
+========================================= */
+
+.two-factor-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.two-factor-message svg {
+    flex-shrink: 0;
+}
+
+.two-factor-message.error {
+    border: 1px solid #ffd4d4;
+    background: #fff0f0;
+    color: #c62828;
+}
+
+.two-factor-message.success {
+    border: 1px solid #ccebd6;
+    background: #effaf3;
+    color: #237a43;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.two-factor-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 80px;
+    color: #68748a;
+    font-size: 13px;
+}
+
+.two-factor-spinner {
+    animation: twoFactorSpin 1s linear infinite;
+    color: #1239c9;
+}
+
+@keyframes twoFactorSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 520px) {
+    .two-factor-card {
+        padding: 18px;
+    }
+
+    .two-factor-header {
+        gap: 11px;
+    }
+
+    .two-factor-actions {
+        flex-direction: column-reverse;
+    }
+
+    .two-factor-actions button {
+        width: 100%;
+    }
+
+    .two-factor-recovery-list {
+        grid-template-columns: 1fr;
+    }
+
+    .two-factor-qr-container {
+        min-height: 210px;
+    }
+
+    .two-factor-qr-image {
+        width: 175px;
+        height: 175px;
+    }
+
+    .two-factor-manual-key code {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .two-factor-card {
+        padding: 15px;
+    }
+
+    .two-factor-header h3 {
+        font-size: 15px;
+    }
+
+    .two-factor-recovery-code {
+        padding: 8px;
+    }
+}

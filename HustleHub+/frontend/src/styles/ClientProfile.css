@@ -1,0 +1,101 @@
+
+/* Client Profile Page */
+
+.client-profile-page {
+    min-height: 100vh;
+    background: #f8f9fc;
+}
+
+/* Account information */
+
+.client-account-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.client-account-info-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    background: #f8faff;
+    border: 1px solid #e8edf6;
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.client-info-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    background: #eaf1ff;
+    border-radius: 10px;
+}
+
+.client-account-info-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.client-account-info-card small {
+    color: #7b8497;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.client-account-info-card strong {
+    color: #202b43;
+    font-size: 14px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.client-account-email-card {
+    grid-column: 1 / -1;
+}
+
+/* Client navbar spacing */
+
+.client-profile-page .fps-content {
+    padding-bottom: 50px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .client-account-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .client-account-email-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .client-profile-page .fps-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .client-account-info-card {
+        padding: 14px;
+    }
+
+    .client-profile-page .fps-profile-summary {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .client-profile-page .fps-profile-summary > button {
+        width: 100%;
+        justify-content: center;
+    }
+}

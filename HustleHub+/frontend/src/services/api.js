@@ -175,6 +175,41 @@ export const updateMyProfile = async (profileData) => {
     });
 };
 
+export const changeMyPassword = async (passwordData) => {
+    return request("/users/change-password", {
+        method: "PATCH",
+        body: JSON.stringify(passwordData)
+    });
+};
+
+export const startTwoFactorSetup = async (currentPassword) => {
+    return request("/users/2fa/setup", {
+        method: "POST",
+        body: JSON.stringify({
+            currentPassword
+        })
+    });
+};
+
+
+export const enableTwoFactor = async (otp) => {
+    return request("/users/2fa/enable", {
+        method: "PATCH",
+        body: JSON.stringify({
+            otp
+        })
+    });
+};
+
+
+export const disableTwoFactor = async (currentPassword) => {
+    return request("/users/2fa/disable", {
+        method: "PATCH",
+        body: JSON.stringify({
+            currentPassword
+        })
+    });
+};
 
 /*Reference List
 

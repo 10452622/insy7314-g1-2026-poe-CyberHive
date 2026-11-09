@@ -44,6 +44,13 @@ const bookingSchema = new mongoose.Schema(
             default: "Pending"
         },
 
+       // Records the actual date on which the booking was completed.
+       // Used to allocate completed booking revenue to the correct tax year.
+        completedAt: {
+            type: Date,
+            default: null
+        },
+
         deliveryDate: {
             type: Date,
             required: true

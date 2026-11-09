@@ -1,36 +1,77 @@
-
 const express = require("express");
+const router = express.Router();
 
-const { authenticateToken } = require("../middleware/authMiddleware");
+const {
+    authenticateToken
+} = require("../middleware/authMiddleware");
 
 const {
     getMyProfile,
-    updateMyProfile
+    updateMyProfile,
+    changePassword,
+    setupTwoFactor,
+    enableTwoFactor,
+    disableTwoFactor
 } = require("../controllers/userController");
 
-const router = express.Router();
+// ==========================================
+// PROFILE ROUTES
+// ==========================================
 
-// GET /api/users/profile
-// Existing protected profile endpoint
-router.get("/profile", authenticateToken, (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Protected profile accessed successfully.",
-        user: {
-            id: req.user.id,
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            role: req.user.role
-        }
-    });
-});
+router.get(
+    "/profile",
+    authenticateToken,
+    getMyProfile
+);
 
-// GET /api/users/me
-// Retrieve the logged-in user's complete profile
-router.get("/me", authenticateToken, getMyProfile);
+router.get(
+    "/me",
+    authenticateToken,
+    getMyProfile
+);
 
-// PATCH /api/users/me
-// Update the logged-in user's profile
-router.patch("/me", authenticateToken, updateMyProfile);
+router.patch(
+    "/me",
+    authenticateToken,
+    updateMyProfile
+);
+
+
+// ==========================================
+// PASSWORD ROUTE
+// ==========================================
+
+router.patch(
+    "/change-password",
+    authenticateToken,
+    changePassword
+);
+
+
+// ==========================================
+// AUTHENTICATOR TWO-FACTOR AUTHENTICATION
+// ==========================================
+
+// Step 1: Verify password and generate authenticator QR code.
+router.post(
+    "/2fa/setup",
+    authenticateToken,
+    setupTwoFactor
+);
+
+// Step 2: Verify the first authenticator code and enable 2FA.
+router.patch(
+    "/2fa/enable",
+    authenticateToken,
+    enableTwoFactor
+);
+
+// Disable 2FA after verifying the current password.
+router.patch(
+    "/2fa/disable",
+    authenticateToken,
+    disableTwoFactor
+);
+
 
 module.exports = router;

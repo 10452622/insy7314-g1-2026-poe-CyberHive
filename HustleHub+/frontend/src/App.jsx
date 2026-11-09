@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import AccountTypePage from "./pages/AccountTypePage";
 import LoginPage from "./pages/LoginPage";
+import VerifyOTPPage from "./pages/VerifyOTPPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import AboutPage from "./pages/AboutPage"; /* //(MDN Web Docs, 2026) */
@@ -24,6 +25,8 @@ import CreateBooking from "./pages/CreateBooking";
 import BookingConfirmation from "./pages/BookingConfirmation"; /* (MDN Web Docs, 2026) */
 import MyOrders from "./pages/MyOrders";
 import Messages from "./pages/Messages";
+import ClientProfile from "./pages/ClientProfile";
+import ClientAccountSettings from "./pages/ClientAccountSettings";
 
 import ClientOrders from "./pages/ClientOrders";                   /* Page 11 */
 import OrderDetails from "./pages/OrderDetails";           /* Page 12 */
@@ -155,6 +158,11 @@ function App() {
                 />
 
                 <Route
+                    path="/verify-otp"
+                    element={<VerifyOTPPage />}
+                />
+
+                <Route
                     path="/forgot-password"
                     element={<ForgotPasswordPage />}
                 />
@@ -226,6 +234,16 @@ function App() {
                         <Route
                             path="/gigs/:id"
                             element={<ClientGigDetails />}
+                        />
+
+                        <Route
+                            path="/client/profile"
+                            element={<ClientProfile />}
+                        />
+
+                        <Route
+                            path="/client/account-settings"
+                            element={<ClientAccountSettings />}
                         />
 
                     </Route>

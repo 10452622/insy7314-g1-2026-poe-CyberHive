@@ -523,6 +523,175 @@
 }
 
 /* =========================================
+   CHANGE PASSWORD
+   ========================================= */
+
+.fas-password-section {
+    border-color: #e5e2f5;
+}
+
+.fas-password-guidance {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-bottom: 18px;
+    padding: 11px 12px;
+    border: 1px solid #e4defb;
+    border-radius: 6px;
+    background: #f8f6ff;
+    color: #5b4ca6;
+}
+
+.fas-password-guidance svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.fas-password-guidance p {
+    margin: 0;
+    font-size: 0.67rem;
+    line-height: 1.7;
+}
+
+.fas-password-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 14px;
+    width: 100%;
+}
+
+.fas-password-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+}
+
+.fas-password-group > label {
+    display: block;
+    margin-bottom: 7px;
+    color: #596173;
+    font-size: 0.68rem;
+    font-weight: 650;
+}
+
+.fas-password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.fas-password-input-wrapper input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    padding: 10px 43px 10px 12px;
+    border: 1px solid #dfe2ea;
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+    color: #303849;
+    font-family: inherit;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease;
+}
+
+.fas-password-input-wrapper input::placeholder {
+    color: #a0a6b2;
+    opacity: 1;
+}
+
+.fas-password-input-wrapper input:hover:not(:disabled) {
+    border-color: #c8c1e8;
+}
+
+.fas-password-input-wrapper input:focus {
+    border-color: #6654dc;
+    box-shadow: 0 0 0 3px rgb(102 84 220 / 10%);
+}
+
+.fas-password-input-wrapper input:disabled {
+    background: #f6f7fa;
+    color: #89909c;
+    cursor: not-allowed;
+}
+
+.fas-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: #89909c;
+    cursor: pointer;
+    transition:
+        background 150ms ease,
+        color 150ms ease;
+}
+
+.fas-password-toggle:hover {
+    background: #f0edff;
+    color: #5b43d6;
+}
+
+.fas-password-toggle:focus-visible {
+    outline: 3px solid rgb(102 84 220 / 25%);
+    outline-offset: 1px;
+}
+
+.fas-password-confirm-group {
+    grid-column: 1 / -1;
+    width: calc(50% - 7px);
+    max-width: none;
+}
+
+.fas-password-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f5;
+    box-sizing: border-box;
+}
+
+.fas-password-footer p {
+    flex: 1;
+    max-width: 420px;
+    margin: 0;
+    color: #89909c;
+    font-size: 0.64rem;
+    line-height: 1.7;
+}
+
+.fas-password-footer button {
+    flex-shrink: 0;
+}
+
+.fas-password-footer button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================================
    THEME OPTIONS
    ========================================= */
 
@@ -896,6 +1065,15 @@
     .fas-theme-option {
         padding: 11px 8px;
     }
+
+    .fas-password-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .fas-password-footer button {
+        width: 100%;
+    }
 }
 
 /* =========================================
@@ -1011,6 +1189,26 @@
         font-size: 0.75rem;
     }
 
+    .fas-password-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .fas-password-confirm-group {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .fas-password-footer {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .fas-password-footer button {
+        width: 100%;
+    }
+
     .fas-theme-options {
         grid-template-columns: minmax(0, 1fr);
         gap: 8px;
@@ -1091,6 +1289,10 @@
     }
 
     .fas-info-banner {
+        padding: 10px;
+    }
+
+    .fas-password-guidance {
         padding: 10px;
     }
 }

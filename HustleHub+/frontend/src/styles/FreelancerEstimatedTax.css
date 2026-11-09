@@ -6,32 +6,62 @@
 
 .fet-content {
     padding-top: 24px;
+    padding-bottom: 40px;
 }
 
+/* Page heading */
+
 .fet-heading {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+}
+
+.fet-eyebrow {
+    display: inline-block;
+    margin-bottom: 7px;
+    color: #6654dc;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
 }
 
 .fet-heading h1 {
     margin: 0;
     color: #202433;
-    font-size: 1.2rem;
+    font-size: 1.45rem;
     line-height: 1.4;
     font-weight: 750;
 }
 
-.fet-heading p {
-    margin: 5px 0 0;
+.fet-heading > p {
+    max-width: 650px;
+    margin: 6px 0 12px;
     color: #778092;
     font-size: 0.78rem;
-    line-height: 1.5;
+    line-height: 1.6;
+}
+
+.fet-tax-year {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: #778092;
+    font-size: 0.7rem;
+}
+
+.fet-tax-year strong {
+    padding: 4px 9px;
+    border-radius: 5px;
+    background: #eeeaff;
+    color: #6654dc;
+    font-size: 0.7rem;
 }
 
 /* Summary cards */
 
 .fet-summary-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 16px;
 }
@@ -39,26 +69,42 @@
 .fet-summary-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
     min-width: 0;
-    min-height: 94px;
-    padding: 14px 16px;
+    min-height: 116px;
+    padding: 15px;
     border: 1px solid #e8eaf0;
-    border-radius: 8px;
+    border-radius: 9px;
     background: #fff;
+    transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-.fet-summary-card > span {
+.fet-summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgb(32 36 51 / 5%);
+}
+
+.fet-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.fet-card-top > span {
     color: #778092;
-    font-size: 0.7rem;
-    font-weight: 550;
+    font-size: 0.68rem;
+    font-weight: 600;
+}
+
+.fet-card-top svg {
+    flex-shrink: 0;
+    color: #6654dc;
 }
 
 .fet-summary-card > strong {
-    margin-top: 7px;
+    margin-top: 12px;
     color: #25283a;
-    font-size: 1.2rem;
+    font-size: 1.13rem;
     line-height: 1.3;
     font-weight: 750;
     overflow-wrap: anywhere;
@@ -68,46 +114,56 @@
 .fet-summary-card > small {
     margin-top: 5px;
     color: #89909c;
-    font-size: 0.64rem;
+    font-size: 0.63rem;
     line-height: 1.5;
-}
-
-.fet-summary-card.fet-tax-card {
-    border-top: 3px solid #e8b35d;
-}
-
-.fet-summary-card.fet-net-card {
-    border-top: 3px solid #76b58b;
 }
 
 /* Main panels */
 
 .fet-main-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
     align-items: start;
     gap: 14px;
+    margin-bottom: 14px;
 }
 
 .fet-breakdown,
-.fet-calculator {
+.fet-calculator,
+.fet-chart-card,
+.fet-explanation {
     min-width: 0;
-    padding: 16px;
+    padding: 17px;
     border: 1px solid #e8eaf0;
-    border-radius: 8px;
+    border-radius: 9px;
     background: #fff;
-    box-shadow: none;
 }
 
-.fet-main-grid .freelancer-panel-heading {
-    margin-bottom: 12px;
+.fet-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-.fet-main-grid .freelancer-panel-heading h2 {
+.fet-section-heading h2 {
     margin: 0;
     color: #292d3c;
-    font-size: 0.8rem;
+    font-size: 0.84rem;
     font-weight: 750;
+}
+
+.fet-section-heading p {
+    margin: 4px 0 0;
+    color: #89909c;
+    font-size: 0.65rem;
+    line-height: 1.5;
+}
+
+.fet-section-heading > svg {
+    flex-shrink: 0;
+    color: #6654dc;
 }
 
 /* Breakdown rows */
@@ -120,7 +176,7 @@
     min-height: 39px;
     padding: 10px 0;
     border-bottom: 1px solid #f0f1f5;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
 }
 
 .fet-breakdown-row span {
@@ -129,7 +185,7 @@
 
 .fet-breakdown-row strong {
     color: #303849;
-    font-size: 0.73rem;
+    font-size: 0.72rem;
     font-weight: 650;
     text-align: right;
     white-space: nowrap;
@@ -147,7 +203,7 @@
 }
 
 .fet-breakdown-row.fet-net-row {
-    margin-top: 4px;
+    margin-top: 5px;
     padding: 12px;
     border: 0;
     border-radius: 6px;
@@ -160,24 +216,43 @@
     font-weight: 750;
 }
 
+.fet-bracket-note {
+    margin: 13px 0 0;
+    padding: 10px 11px;
+    border-radius: 6px;
+    background: #f7f5ff;
+    color: #625b85;
+    font-size: 0.67rem;
+    line-height: 1.6;
+}
+
+.fet-bracket-note strong {
+    color: #6654dc;
+}
+
 /* Calculator inputs */
 
 .fet-calculator-intro {
-    margin: 0 0 16px;
+    margin: 0 0 15px;
     color: #778092;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
     line-height: 1.6;
+}
+
+.fet-form-group {
+    margin-bottom: 13px;
 }
 
 .fet-calculator label {
     display: block;
-    margin: 14px 0 7px;
+    margin-bottom: 7px;
     color: #4c5566;
-    font-size: 0.7rem;
+    font-size: 0.69rem;
     font-weight: 650;
 }
 
-.fet-calculator input {
+.fet-calculator input,
+.fet-calculator select {
     display: block;
     width: 100%;
     min-height: 40px;
@@ -188,31 +263,221 @@
     background: #fff;
     color: #25283a;
     font: inherit;
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
-.fet-calculator input:focus {
+.fet-calculator input:focus,
+.fet-calculator select:focus {
     border-color: #6654dc;
     box-shadow: 0 0 0 3px rgb(102 84 220 / 12%);
 }
 
-.fet-rate-note {
-    margin-top: 16px;
-    padding: 10px 11px;
-    border: 1px solid #ece7fb;
-    border-radius: 6px;
+.fet-calculator input:disabled,
+.fet-calculator select:disabled {
+    background: #f4f5f8;
+    cursor: not-allowed;
+}
+
+.fet-form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #89909c;
+    font-size: 0.63rem;
+    line-height: 1.55;
+}
+
+.fet-calculator-result {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 18px;
+    padding: 14px;
+    border: 1px solid #e4defb;
+    border-radius: 7px;
     background: #f8f6ff;
+}
+
+.fet-calculator-result span {
     color: #625b85;
+    font-size: 0.69rem;
+    font-weight: 600;
+}
+
+.fet-calculator-result strong {
+    color: #5141c6;
+    font-size: 1.35rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+.fet-calculator-result small {
+    color: #625b85;
+    font-size: 0.65rem;
+    line-height: 1.5;
+}
+
+/* Charts */
+
+.fet-visual-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.fet-chart-card {
+    min-width: 0;
+}
+
+.fet-bar-chart {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    gap: 8px;
+    min-height: 205px;
+    padding-top: 10px;
+}
+
+.fet-bar-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    height: 190px;
+    gap: 7px;
+}
+
+.fet-bar-value {
+    max-width: 100%;
+    min-height: 12px;
+    overflow: hidden;
+    color: #89909c;
+    font-size: 0.52rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fet-bar-track {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+    background: #f1effb;
+}
+
+.fet-bar {
+    width: 100%;
+    min-height: 0;
+    border-radius: 4px 4px 0 0;
+    background: #7564dc;
+    transition: height 200ms ease;
+}
+
+.fet-bar-label {
+    color: #778092;
+    font-size: 0.59rem;
+    font-weight: 600;
+}
+
+/* Income allocation chart */
+
+.fet-allocation-bar {
+    display: flex;
+    width: 100%;
+    height: 17px;
+    overflow: hidden;
+    margin: 24px 0;
+    border-radius: 20px;
+    background: #f0f1f5;
+}
+
+.fet-allocation-expenses {
+    background: #e6a23c;
+}
+
+.fet-allocation-tax {
+    background: #7564dc;
+}
+
+.fet-allocation-net {
+    background: #63a77c;
+}
+
+.fet-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.fet-legend > div {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 9px;
+    color: #687183;
+    font-size: 0.66rem;
+}
+
+.fet-legend strong {
+    color: #303849;
     font-size: 0.68rem;
-    line-height: 1.6;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.fet-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+}
+
+.fet-dot-expenses {
+    background: #e6a23c;
+}
+
+.fet-dot-tax {
+    background: #7564dc;
+}
+
+.fet-dot-net {
+    background: #63a77c;
+}
+
+/* Tax calculation explanation */
+
+.fet-explanation {
+    margin-bottom: 14px;
+}
+
+.fet-explanation ol {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin: 0;
+    padding-left: 20px;
+    color: #687183;
+    font-size: 0.7rem;
+    line-height: 1.65;
+}
+
+.fet-explanation li {
+    padding-left: 4px;
+}
+
+.fet-explanation li strong {
+    color: #34394a;
 }
 
 /* Disclaimer */
 
 .fet-disclaimer {
     margin-top: 14px;
-    padding: 13px 15px;
+    padding: 14px 15px;
     border: 1px solid #e8eaf0;
     border-radius: 8px;
     background: #fff;
@@ -220,31 +485,57 @@
 
 .fet-disclaimer strong {
     color: #454052;
-    font-size: 0.72rem;
+    font-size: 0.73rem;
     font-weight: 750;
 }
 
 .fet-disclaimer p {
-    margin: 6px 0 0;
+    margin: 7px 0 0;
     color: #778092;
-    font-size: 0.68rem;
+    font-size: 0.67rem;
     line-height: 1.7;
 }
 
+.fet-disclaimer .fet-source {
+    padding-top: 9px;
+    border-top: 1px solid #f0f1f5;
+    color: #6654dc;
+    font-size: 0.64rem;
+}
+
+/* Error and empty states */
+
 .fet-error {
     margin-bottom: 14px;
-    padding: 10px 12px;
+    padding: 12px 14px;
     border: 1px solid #f0d0d0;
-    border-radius: 6px;
+    border-radius: 7px;
     background: #fff6f6;
     color: #a33d39;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
+}
+
+.fet-error p {
+    margin: 5px 0 0;
+    line-height: 1.5;
+}
+
+.fet-empty {
+    padding: 16px 0;
+    color: #89909c;
+    font-size: 0.72rem;
+    text-align: center;
 }
 
 /* Tablet */
 
-@media (max-width: 820px) {
-    .fet-main-grid {
+@media (max-width: 1000px) {
+    .fet-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fet-main-grid,
+    .fet-visual-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 }
@@ -257,38 +548,84 @@
     }
 
     .fet-heading {
-        margin-bottom: 16px;
+        margin-bottom: 17px;
+    }
+
+    .fet-heading h1 {
+        font-size: 1.25rem;
     }
 
     .fet-summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 9px;
     }
 
     .fet-summary-card {
-        min-height: 88px;
+        min-height: 105px;
         padding: 12px;
     }
 
     .fet-summary-card > strong {
-        font-size: 1.05rem;
+        font-size: 0.98rem;
+    }
+
+    .fet-card-top > span {
+        font-size: 0.62rem;
     }
 
     .fet-breakdown,
-    .fet-calculator {
+    .fet-calculator,
+    .fet-chart-card,
+    .fet-explanation {
         padding: 13px 12px;
     }
 
     .fet-breakdown-row {
         gap: 8px;
-        font-size: 0.67rem;
+        font-size: 0.65rem;
     }
 
     .fet-breakdown-row strong {
-        font-size: 0.68rem;
+        font-size: 0.66rem;
+    }
+
+    .fet-bar-chart {
+        gap: 4px;
+    }
+
+    .fet-bar-value {
+        font-size: 0.43rem;
+    }
+
+    .fet-bar-label {
+        font-size: 0.52rem;
+    }
+
+    .fet-legend > div {
+        font-size: 0.61rem;
+    }
+
+    .fet-legend strong {
+        font-size: 0.63rem;
     }
 
     .fet-disclaimer {
         padding: 12px;
+    }
+}
+
+/* Small mobile devices */
+
+@media (max-width: 380px) {
+    .fet-summary-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .fet-bar-chart {
+        gap: 3px;
+    }
+
+    .fet-bar-value {
+        display: none;
     }
 }
