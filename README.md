@@ -466,6 +466,7 @@ The frontend provides the user interface while the Node.js and Express.js backen
 # <u>POE Final (Part 3)</u>
 
 <ins>HustleHub+ Security Review</ins>
+
 <ins>1. Introduction</ins>
 Security was an important consideration during the development of HustleHub+, a freelance marketplace platform designed to connect freelancers with clients. The platform allows freelancers to advertise their services and clients to browse and book these services. It also records financial transactions generated through bookings and provides users with information about their income and estimated tax obligations.
 
