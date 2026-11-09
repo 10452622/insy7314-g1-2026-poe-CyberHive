@@ -619,9 +619,8 @@ Transaction logging supports the monitoring of financial operations generated th
 
 Error logging assists developers in identifying technical problems affecting application functionality.These records support debugging, troubleshooting and the investigation of unexpected system behaviour. Application logs provide important information for diagnosing problems and understanding events surrounding potential security incidents (OWASP Foundation, 2026).
 
-### 4.5 Grafana Monitoring
-
-Grafana also forms part of HustleHub+'s monitoring setup. When connected to an appropriate log data source, Grafana provides a central interface for viewing application logs, investigating errors and analysing system activity. This assists developers in identifying unusual behaviour and reviewing application events (OWASP Foundation, 2026).
+### 4.5 API requests
+The system records each HTTP request's method, endpoint, response status code, processing duration and originating IP address to monitor API performance, identify unusual traffic patterns and support troubleshooting and security investigations (OWASP Foundation, n.d.).
 
 ### 4.6 Secure Logging Practices
 
@@ -629,11 +628,20 @@ Although logging supports security monitoring, log information must also be prot
 
 The OWASP Foundation (2026) recommends protecting sensitive information in logs and restricting access to recorded security events. The final logging implementation was therefore verified to confirm that relevant events are captured without unnecessarily exposing sensitive user information.
 
-## 5. Docker Containerisation and Continuous Integration Pipeline
+### 5 Grafana Monitoring
+
+Grafana also forms part of HustleHub+'s monitoring setup. When connected to an appropriate log data source. Injection attacks are mitigated through input validation, sanitisation and safe database queries to prevent malicious input from manipulating database operations. Cross-site scripting (XSS) is addressed through appropriate input handling, output escaping and security headers to reduce the risk of malicious scripts being executed. 
+
+Authentication security is strengthened through password hashing, JWT-based authentication, secure token handling and login validation to protect user accounts. Access control is implemented through role-based permissions to ensure that clients and freelancers can only access functionality and resources authorised for their roles. Furthermore, API security is enhanced through Helmet security headers, CORS configuration, rate limiting and request validation to reduce unauthorised access and malicious requests. 
+
+Finally, error handling ensures that users receive safe and appropriate error messages without exposing sensitive internal information, such as database details or application stack traces (OWASP, 2021; OWASP, n.d.). This assists developers in identifying unusual behaviour and reviewing application events (OWASP Foundation, 2026).
+
+
+## 6. Docker Containerisation and Continuous Integration Pipeline
 
 Docker containerisation and a Continuous Integration pipeline were implemented to support the development, testing and integration of HustleHub+. These technologies contribute to consistent application execution and automated verification.
 
-### 5.1 Application Architecture
+### 6.1 Application Architecture
 
 HustleHub+ consists of three main components:
 
@@ -651,7 +659,7 @@ MongoDB stores application information, including user-related data, service det
 
 This separation provides a structure for managing server-side operations. However, secure authentication, authorisation and input validation remain necessary to protect sensitive information (OWASP Foundation, 2025).
 
-### 5.2 Docker Containerisation
+### 6.2 Docker Containerisation
 
 Docker packages the React frontend and Node.js/Express backend into runnable containers. This allows the application components to execute in defined environments and helps reduce configuration differences during development and testing.
 
@@ -671,7 +679,7 @@ Important security considerations include:
 
 These precautions are relevant because security misconfiguration and software supply chain weaknesses can expose applications to additional risks (OWASP Foundation, 2025).
 
-### 5.3 GitHub Continuous Integration (CI) Pipeline
+### 6.3 GitHub Continuous Integration (CI) Pipeline
 
 A Continuous Integration pipeline was implemented using GitHub to automate application building and testing. The CI pipeline builds and runs the Docker containers and executes automated tests before changes are merged.
 
@@ -689,13 +697,13 @@ The CI pipeline therefore contributes to application reliability and supports th
 
 However, software supply chain risks remain an important security concern, meaning that automated builds and tests within HustleHub+ are supported by secure dependency management and appropriate security checks (OWASP Foundation, 2025).
 
-### 5.4 Deployment Status
+### 6.4 Deployment Status
 
 The GitHub CI pipeline currently performs automated building, container execution and testing. It does not publish HustleHub+ to a live production website. Production deployment has not yet been configured.
 
 Consequently, production-specific security measures such as HTTPS configuration, hosting permissions and public infrastructure security have not been assessed in this review.
 
-## 6. Conclusion
+## 7. Conclusion
 
 The security review of HustleHub+ highlights the importance of protecting sensitive information and maintaining a secure freelance marketplace. The development team implemented Two-Factor Authentication and Change Password functionality as two additional security features.
 
@@ -709,7 +717,7 @@ The review identifies injection attacks, cross-site scripting, authentication we
 
 Overall, HustleHub+ incorporates security considerations into both its application functionality and development practices.
 
-## 7. Reference List
+## 8. Reference List
 
 1. OWASP Foundation, 2025. OWASP Top 10:2025. [online] Available at: <https://top10.owasp.org/2025/> [Accessed 09 November 2026].
 
