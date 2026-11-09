@@ -460,15 +460,13 @@ Security has been applied throughout the application through JWT authentication,
 
 The frontend provides the user interface while the Node.js and Express.js backend provides the REST API and business logic. Testing has been expanded to include Postman, Newman and frontend tests.
 
-
-
+---
+---
 
 # <u>POE Final (Part 3)</u>
 
----
----
-
 <u>HustleHub+ Security Review</u>
+
 <u>1. Introduction</u>
 Security was an important consideration during the development of HustleHub+, a freelance marketplace platform designed to connect freelancers with clients. The platform allows freelancers to advertise their services and clients to browse and book these services. It also records financial transactions generated through bookings and provides users with information about their income and estimated tax obligations.
 
