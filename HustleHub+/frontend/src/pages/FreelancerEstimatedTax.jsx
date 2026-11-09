@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Calculator, TrendingUp, Wallet, Receipt, ShieldCheck } from "lucide-react";
 import { fetchFreelancerOrders } from "../services/api";
 import FreelancerHeader from "../components/FreelancerHeader";
-import "../styles/freelancerEstimatedTax.css";
+import "../styles/FreelancerEstimatedTax.css";
 
 // SARS 2026/2027 tax year: 1 March 2026 - 28 February 2027.
 // Source: SARS, Rates of Tax for Individuals (2027 tax year).
